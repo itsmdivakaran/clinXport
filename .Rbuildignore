@@ -8,3 +8,11 @@
 ^LICENSE\.md$
 ^cran-comments\.md$
 ^NEWS\.md$
+^\.DS_Store$
+^\.Rhistory$
+^\.\.Rcheck$
+^\.git$
+^src/.*\.(o|so|dll|dylib)$
+^abc\.xpt$
+^inst$
+^vignettes$

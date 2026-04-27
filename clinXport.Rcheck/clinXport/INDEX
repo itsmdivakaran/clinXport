@@ -1,0 +1,25 @@
+apply_spec              Apply a variable specification to a data frame
+check_var_lengths       Check variable byte lengths against XPT limits
+check_xpt_names         Check column names for XPT compliance
+get_metadata            Get a metadata summary table for a data frame
+get_var_format          Get SAS format strings from a data frame
+get_var_label           Get variable labels from a data frame
+get_var_length          Get variable byte lengths from a data frame
+import_spec             Import a variable specification from a file
+read_pharma_csv         Read a CSV file with clinical metadata support
+read_pharma_excel       Read an Excel file with clinical metadata
+                        support
+read_sas                Read a SAS7BDAT file
+read_xpt                Read a SAS XPT file (v5 or v8)
+sanitize_col_names      Sanitise data frame column names for XPT
+                        compliance
+set_var_format          Set SAS format strings on a data frame
+set_var_label           Set variable labels on a data frame
+set_var_length          Set variable byte lengths on a data frame
+submission_check        Run a full submission-readiness check on a
+                        dataset
+write_pharma_csv        Write a data frame to CSV with metadata sidecar
+write_pharma_excel      Write a data frame (or list of data frames) to
+                        an Excel file
+write_sas               Write a data frame to SAS7BDAT format
+write_xpt               Write a data frame to SAS XPT format

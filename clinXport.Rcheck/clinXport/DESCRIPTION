@@ -23,24 +23,17 @@ Description: Provides high-performance read/write capabilities for clinical
     'xportr'.
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: false
-Depends:
-    R (>= 4.1.0)
-Imports:
-    Rcpp (>= 1.0.10),
-    openxlsx2 (>= 1.0.0),
-    readxl (>= 1.4.0),
-    data.table (>= 1.14.0),
-    tools
-LinkingTo:
-    Rcpp
-Suggests:
-    testthat (>= 3.0.0),
-    pkgdown,
-    withr
+Depends: R (>= 4.1.0)
+Imports: Rcpp (>= 1.0.10), openxlsx2 (>= 1.0.0), readxl (>= 1.4.0),
+        data.table (>= 1.14.0), tools
+LinkingTo: Rcpp
+Suggests: testthat (>= 3.0.0), pkgdown, withr
 Config/testthat/edition: 3
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
 URL: https://itsmdivakaran.github.io/clinXport,
-    https://github.com/itsmdivakaran/clinXport
+        https://github.com/itsmdivakaran/clinXport
 BugReports: https://github.com/itsmdivakaran/clinXport/issues
+NeedsCompilation: yes
+Packaged: 2026-04-27 07:03:48 UTC; maheshdivakaran
+Built: R 4.5.2; aarch64-apple-darwin20; 2026-04-27 07:03:52 UTC; unix
