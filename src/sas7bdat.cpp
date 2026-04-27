@@ -41,13 +41,10 @@ static const uint8_t SAS7BDAT_MAGIC[32] = {
 
 static const int SAS_HEADER_SIZE = 1024;   // minimum header size (SAS 9.x)
 static const int SAS_PAGE_SIZE   = 4096;   // default page size for new files
-static const int SAS_PAGE_BIT_OFFSET = 16; // page header: 16 bytes on 32-bit
-
 // Page types
 static const int PAGE_META  = 0;    // metadata
 static const int PAGE_DATA  = 256;  // data only
 static const int PAGE_MIX   = 512;  // mixed (metadata + data)
-static const int PAGE_AMD   = 1024; // additional metadata (amended)
 
 // Subheader signatures (32-bit SAS)
 static const uint32_t SH_ROW_SIZE  = 0xF7F7F7F7u;
@@ -56,12 +53,10 @@ static const uint32_t SH_COL_TEXT  = 0xFFFFFFFDu;
 static const uint32_t SH_COL_NAME  = 0xFFFFFFFFu;
 static const uint32_t SH_COL_ATTR  = 0xFFFFFFFEu;
 static const uint32_t SH_COL_FMT   = 0xFFFBFFF9u;
-static const uint32_t SH_DATA_STEP = 0xF5F5F5F5u;
 
 // ============================================================
 // Utility
 // ============================================================
-static uint8_t read8(const uint8_t* p)  { return p[0]; }
 static uint16_t read16le(const uint8_t* p) {
     return (uint16_t)(p[0] | ((uint16_t)p[1] << 8));
 }
@@ -84,16 +79,6 @@ static uint32_t read32le(const uint8_t* p) {
 static uint32_t read32be(const uint8_t* p) {
     return (uint32_t)(((uint32_t)p[0]<<24) | ((uint32_t)p[1]<<16) | ((uint32_t)p[2]<<8) | p[3]);
 }
-static double read_double(const uint8_t* p, bool big_endian) {
-    uint8_t tmp[8];
-    if (big_endian) {
-        for (int i=0;i<8;i++) tmp[i] = p[7-i];
-    } else {
-        std::memcpy(tmp, p, 8);
-    }
-    double v; std::memcpy(&v, tmp, 8); return v;
-}
-
 static std::string trim_right(const char* s, int n) {
     while (n > 0 && (s[n-1] == ' ' || s[n-1] == '\0')) --n;
     return std::string(s, n);
@@ -108,9 +93,6 @@ static void write32le(uint8_t* p, uint32_t v) {
 static void write64le(uint8_t* p, uint64_t v) {
     for(int i=0;i<8;i++) { p[i]=v&0xFF; v>>=8; }
 }
-
-// SAS epoch: Jan 1, 1960 in Unix seconds
-static const double SAS_EPOCH_OFFSET = 315619200.0; // seconds from Unix epoch to SAS epoch
 
 // ============================================================
 // SAS7BDAT READER
@@ -356,6 +338,8 @@ SEXP cx_read_sas7bdat(std::string path) {
             }
         }
     }
+
+    if (col_count > 0 && (int)cols.size() < col_count) cols.resize(col_count);
 
     if (cols.empty() || total_rows <= 0 || row_length <= 0) {
         List empty;
@@ -620,7 +604,6 @@ SEXP cx_write_sas7bdat(DataFrame df,
     const int pg_size       = SAS_PAGE_SIZE;
     const int ph_size       = 24;             // 32-bit page header
     const int sh_ptr_size   = 12;             // subheader pointer (32-bit)
-    const int int_len       = 4;
 
     // Build text blocks for column metadata
     // text_block: single buffer with all names/labels/formats

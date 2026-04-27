@@ -11,6 +11,8 @@
 ^\.DS_Store$
 ^\.Rhistory$
 ^\.\.Rcheck$
+^.*\.Rcheck$
+^.*\.tar\.gz$
 ^\.git$
 ^src/.*\.(o|so|dll|dylib)$
 ^abc\.xpt$

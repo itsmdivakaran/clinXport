@@ -19,7 +19,7 @@ Type 'q()' to quit R.
 > library(clinXport)
 > 
 > test_check("clinXport")
-Spec sidecar written to: /var/folders/_l/cqt61y8964xcljqfq34qpj3c0000gn/T//Rtmp1j4A5X/file214047f3cf4a.spec.csv
+Spec sidecar written to: /var/folders/_l/cqt61y8964xcljqfq34qpj3c0000gn/T//RtmpAPiwqh/file302b592db238.spec.csv
 sanitize_col_names: 2 column(s) renamed:
   'subject id' -> 'SUBJECT_'
   'longcolumnname' -> 'LONGCOLU'
@@ -27,4 +27,4 @@ sanitize_col_names: 2 column(s) renamed:
 > 
 > proc.time()
    user  system elapsed 
-  0.593   0.073   0.701 
+  0.562   0.064   0.629 

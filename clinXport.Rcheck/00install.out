@@ -24,31 +24,7 @@ In file included from /Library/Frameworks/R.framework/Resources/include/R.h:70:
 /Library/Frameworks/R.framework/Resources/include/R_ext/Boolean.h:62:36: warning: unknown warning group '-Wfixed-enum-extension', ignored [-Wunknown-warning-option]
    62 | #  pragma clang diagnostic ignored "-Wfixed-enum-extension"
       |                                    ^
-sas7bdat.cpp:213:9: warning: variable 'col_count' set but not used [-Wunused-but-set-variable]
-  213 |     int col_count  = 0;
-      |         ^
-sas7bdat.cpp:623:15: warning: unused variable 'int_len' [-Wunused-variable]
-  623 |     const int int_len       = 4;
-      |               ^~~~~~~
-sas7bdat.cpp:44:18: warning: unused variable 'SAS_PAGE_BIT_OFFSET' [-Wunused-const-variable]
-   44 | static const int SAS_PAGE_BIT_OFFSET = 16; // page header: 16 bytes on 32-bit
-      |                  ^~~~~~~~~~~~~~~~~~~
-sas7bdat.cpp:50:18: warning: unused variable 'PAGE_AMD' [-Wunused-const-variable]
-   50 | static const int PAGE_AMD   = 1024; // additional metadata (amended)
-      |                  ^~~~~~~~
-sas7bdat.cpp:59:23: warning: unused variable 'SH_DATA_STEP' [-Wunused-const-variable]
-   59 | static const uint32_t SH_DATA_STEP = 0xF5F5F5F5u;
-      |                       ^~~~~~~~~~~~
-sas7bdat.cpp:64:16: warning: unused function 'read8' [-Wunused-function]
-   64 | static uint8_t read8(const uint8_t* p)  { return p[0]; }
-      |                ^~~~~
-sas7bdat.cpp:87:15: warning: unused function 'read_double' [-Wunused-function]
-   87 | static double read_double(const uint8_t* p, bool big_endian) {
-      |               ^~~~~~~~~~~
-sas7bdat.cpp:113:21: warning: unused variable 'SAS_EPOCH_OFFSET' [-Wunused-const-variable]
-  113 | static const double SAS_EPOCH_OFFSET = 315619200.0; // seconds from Unix epoch to SAS epoch
-      |                     ^~~~~~~~~~~~~~~~
-9 warnings generated.
+1 warning generated.
 clang++ -arch arm64 -std=gnu++17 -I"/Library/Frameworks/R.framework/Resources/include" -DNDEBUG  -I'/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/Rcpp/include' -I/opt/R/arm64/include    -fPIC  -falign-functions=64 -Wall -g -O2   -c xpt.cpp -o xpt.o
 In file included from xpt.cpp:10:
 In file included from /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library/Rcpp/include/Rcpp.h:27:
@@ -58,13 +34,7 @@ In file included from /Library/Frameworks/R.framework/Resources/include/R.h:70:
 /Library/Frameworks/R.framework/Resources/include/R_ext/Boolean.h:62:36: warning: unknown warning group '-Wfixed-enum-extension', ignored [-Wunknown-warning-option]
    62 | #  pragma clang diagnostic ignored "-Wfixed-enum-extension"
       |                                    ^
-xpt.cpp:511:9: warning: variable 'namestr_len' set but not used [-Wunused-but-set-variable]
-  511 |     int namestr_len = 140; // v5 default
-      |         ^
-xpt.cpp:36:20: warning: unused function 'pad_left' [-Wunused-function]
-   36 | static std::string pad_left(const std::string& s, size_t n, char c = ' ') {
-      |                    ^~~~~~~~
-3 warnings generated.
+1 warning generated.
 clang++ -arch arm64 -std=gnu++17 -dynamiclib -Wl,-headerpad_max_install_names -undefined dynamic_lookup -L/Library/Frameworks/R.framework/Resources/lib -L/opt/R/arm64/lib -o clinXport.so RcppExports.o sas7bdat.o xpt.o -F/Library/Frameworks/R.framework/.. -framework R
 installing to /Users/maheshdivakaran/Documents/CLAUDE/R pack/xport/clinXport/clinXport.Rcheck/00LOCK-clinXport/00new/clinXport/libs
 ** R

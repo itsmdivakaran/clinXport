@@ -33,11 +33,6 @@ static std::string pad_right(const std::string& s, size_t n, char c = ' ') {
     return s + std::string(n - s.size(), c);
 }
 
-static std::string pad_left(const std::string& s, size_t n, char c = ' ') {
-    if (s.size() >= n) return s.substr(0, n);
-    return std::string(n - s.size(), c) + s;
-}
-
 static std::string xpt_date() {
     time_t t = time(nullptr);
     struct tm* tm_info = localtime(&t);
@@ -508,7 +503,6 @@ SEXP cx_read_xpt(std::string path) {
 
     // ── Read NAMESTR header ──────────────────────────────────
     int ncol = 0;
-    int namestr_len = 140; // v5 default
     while (pos + 80 <= fsize) {
         std::string rec((char*)buf.data() + pos, 80);
         if (rec.find("NAMESTR HEADER RECORD") != std::string::npos) {
@@ -519,11 +513,6 @@ SEXP cx_read_xpt(std::string path) {
             // Detect v8 vs v5 from member header (already passed; default v5)
             pos += 80;
             break;
-        }
-        if (rec.find("MEMBER  HEADER RECORD") != std::string::npos) {
-            // Check if v8 (namestr size = 320 pattern in header)
-            std::string mhdr((char*)buf.data() + pos, 80);
-            if (mhdr.find("320") != std::string::npos) namestr_len = 140; // v8 still 140
         }
         pos += 80;
     }
