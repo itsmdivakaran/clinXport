@@ -1,0 +1,381 @@
+pkgname <- "clinXport"
+source(file.path(R.home("share"), "R", "examples-header.R"))
+options(warn = 1)
+library('clinXport')
+
+base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
+base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
+cleanEx()
+nameEx("apply_spec")
+### * apply_spec
+
+flush(stderr()); flush(stdout())
+
+### Name: apply_spec
+### Title: Apply a variable specification to a data frame
+### Aliases: apply_spec
+
+### ** Examples
+
+## Not run: 
+##D spec <- import_spec("dm_spec.xlsx")
+##D dm   <- apply_spec(dm_raw, spec, coerce_types = TRUE, reorder = TRUE)
+## End(Not run)
+
+
+
+
+cleanEx()
+nameEx("check_xpt_names")
+### * check_xpt_names
+
+flush(stderr()); flush(stdout())
+
+### Name: check_xpt_names
+### Title: Check column names for XPT compliance
+### Aliases: check_xpt_names
+
+### ** Examples
+
+df <- data.frame(`subject id` = 1, longcolumnname = 2, check.names = FALSE)
+check_xpt_names(df, version = 5)
+
+
+
+
+cleanEx()
+nameEx("get_metadata")
+### * get_metadata
+
+flush(stderr()); flush(stdout())
+
+### Name: get_metadata
+### Title: Get a metadata summary table for a data frame
+### Aliases: get_metadata
+
+### ** Examples
+
+df <- data.frame(USUBJID = "001", AGE = 30L)
+df <- set_var_label(df, c(USUBJID = "Unique Subject Identifier", AGE = "Age"))
+get_metadata(df, dataset_name = "DM")
+
+
+
+
+cleanEx()
+nameEx("get_var_label")
+### * get_var_label
+
+flush(stderr()); flush(stdout())
+
+### Name: get_var_label
+### Title: Get variable labels from a data frame
+### Aliases: get_var_label
+
+### ** Examples
+
+df <- data.frame(A = 1, B = "x")
+df <- set_var_label(df, c(A = "Variable A", B = "Variable B"))
+get_var_label(df)
+
+
+
+
+cleanEx()
+nameEx("import_spec")
+### * import_spec
+
+flush(stderr()); flush(stdout())
+
+### Name: import_spec
+### Title: Import a variable specification from a file
+### Aliases: import_spec
+
+### ** Examples
+
+## Not run: 
+##D spec <- import_spec("SDTM_spec.xlsx", sheet = "DM", dataset = "DM")
+##D dm   <- apply_spec(dm_raw, spec)
+## End(Not run)
+
+
+
+
+cleanEx()
+nameEx("read_pharma_csv")
+### * read_pharma_csv
+
+flush(stderr()); flush(stdout())
+
+### Name: read_pharma_csv
+### Title: Read a CSV file with clinical metadata support
+### Aliases: read_pharma_csv
+
+### ** Examples
+
+## Not run: 
+##D adsl <- read_pharma_csv("adsl.csv")
+## End(Not run)
+
+
+
+
+cleanEx()
+nameEx("read_pharma_excel")
+### * read_pharma_excel
+
+flush(stderr()); flush(stdout())
+
+### Name: read_pharma_excel
+### Title: Read an Excel file with clinical metadata support
+### Aliases: read_pharma_excel
+
+### ** Examples
+
+## Not run: 
+##D adsl <- read_pharma_excel("adsl.xlsx", sheet = "ADSL")
+## End(Not run)
+
+
+
+
+cleanEx()
+nameEx("read_sas")
+### * read_sas
+
+flush(stderr()); flush(stdout())
+
+### Name: read_sas
+### Title: Read a SAS7BDAT file
+### Aliases: read_sas
+
+### ** Examples
+
+## Not run: 
+##D adsl <- read_sas("path/to/adsl.sas7bdat")
+## End(Not run)
+
+
+
+
+cleanEx()
+nameEx("read_xpt")
+### * read_xpt
+
+flush(stderr()); flush(stdout())
+
+### Name: read_xpt
+### Title: Read a SAS XPT file (v5 or v8)
+### Aliases: read_xpt
+
+### ** Examples
+
+## Not run: 
+##D dm <- read_xpt("path/to/dm.xpt")
+##D attr(dm, "var_labels")
+## End(Not run)
+
+
+
+
+cleanEx()
+nameEx("sanitize_col_names")
+### * sanitize_col_names
+
+flush(stderr()); flush(stdout())
+
+### Name: sanitize_col_names
+### Title: Sanitise data frame column names for XPT compliance
+### Aliases: sanitize_col_names
+
+### ** Examples
+
+df <- data.frame(`subject id` = 1, `visit.date` = "2024-01-01",
+                 check.names = FALSE)
+sanitize_col_names(df, version = 5)
+
+
+
+
+cleanEx()
+nameEx("set_var_format")
+### * set_var_format
+
+flush(stderr()); flush(stdout())
+
+### Name: set_var_format
+### Title: Set SAS format strings on a data frame
+### Aliases: set_var_format
+
+### ** Examples
+
+df <- data.frame(RFSTDTC = as.Date("2024-01-15"), AGE = 42L)
+df <- set_var_format(df, c(RFSTDTC = "DATE9.", AGE = "3."))
+get_var_format(df)
+
+
+
+
+cleanEx()
+nameEx("set_var_label")
+### * set_var_label
+
+flush(stderr()); flush(stdout())
+
+### Name: set_var_label
+### Title: Set variable labels on a data frame
+### Aliases: set_var_label
+
+### ** Examples
+
+df <- data.frame(USUBJID = "001", AGE = 30L, SEX = "M")
+df <- set_var_label(df, c(
+  USUBJID = "Unique Subject Identifier",
+  AGE     = "Age at Screening",
+  SEX     = "Sex"
+))
+get_var_label(df)
+
+
+
+
+cleanEx()
+nameEx("set_var_length")
+### * set_var_length
+
+flush(stderr()); flush(stdout())
+
+### Name: set_var_length
+### Title: Set variable byte lengths on a data frame
+### Aliases: set_var_length
+
+### ** Examples
+
+df <- data.frame(USUBJID = "001-001", RACE = "WHITE")
+df <- set_var_length(df, c(USUBJID = 20L, RACE = 200L))
+get_var_length(df)
+
+
+
+
+cleanEx()
+nameEx("submission_check")
+### * submission_check
+
+flush(stderr()); flush(stdout())
+
+### Name: submission_check
+### Title: Run a full submission-readiness check on a dataset
+### Aliases: submission_check
+
+### ** Examples
+
+## Not run: 
+##D dm <- read_xpt("dm.xpt")
+##D report <- submission_check(dm, domain = "DM")
+## End(Not run)
+
+
+
+
+cleanEx()
+nameEx("write_pharma_csv")
+### * write_pharma_csv
+
+flush(stderr()); flush(stdout())
+
+### Name: write_pharma_csv
+### Title: Write a data frame to CSV with metadata sidecar
+### Aliases: write_pharma_csv
+
+### ** Examples
+
+## Not run: 
+##D write_pharma_csv(adsl, "adsl.csv", write_spec = TRUE)
+## End(Not run)
+
+
+
+
+cleanEx()
+nameEx("write_pharma_excel")
+### * write_pharma_excel
+
+flush(stderr()); flush(stdout())
+
+### Name: write_pharma_excel
+### Title: Write a data frame (or list of data frames) to an Excel file
+### Aliases: write_pharma_excel
+
+### ** Examples
+
+## Not run: 
+##D write_pharma_excel(adsl, "adsl.xlsx",
+##D                   header_style  = "clinical",
+##D                   include_labels = TRUE,
+##D                   add_spec_sheet = TRUE)
+##D 
+##D # Multiple sheets
+##D write_pharma_excel(list(DM = dm, AE = ae), "datasets.xlsx")
+## End(Not run)
+
+
+
+
+cleanEx()
+nameEx("write_sas")
+### * write_sas
+
+flush(stderr()); flush(stdout())
+
+### Name: write_sas
+### Title: Write a data frame to SAS7BDAT format
+### Aliases: write_sas
+
+### ** Examples
+
+## Not run: 
+##D write_sas(adsl, "adsl.sas7bdat",
+##D           dataset_name = "ADSL",
+##D           var_labels   = c(USUBJID = "Unique Subject ID", AGE = "Age"))
+## End(Not run)
+
+
+
+
+cleanEx()
+nameEx("write_xpt")
+### * write_xpt
+
+flush(stderr()); flush(stdout())
+
+### Name: write_xpt
+### Title: Write a data frame to SAS XPT format
+### Aliases: write_xpt
+
+### ** Examples
+
+## Not run: 
+##D df <- data.frame(USUBJID = "STUDY-001-001", AGE = 34L, SEX = "M")
+##D df <- set_var_label(df, c(USUBJID = "Unique Subject Identifier",
+##D                           AGE = "Age at Screening",
+##D                           SEX = "Sex"))
+##D df <- set_var_format(df, c(AGE = "3."))
+##D write_xpt(df, "dm.xpt", dataset_name = "DM", dataset_label = "Demographics")
+## End(Not run)
+
+
+
+
+### * <FOOTER>
+###
+cleanEx()
+options(digits = 7L)
+base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
+grDevices::dev.off()
+###
+### Local variables: ***
+### mode: outline-minor ***
+### outline-regexp: "\\(> \\)?### [*]+" ***
+### End: ***
+quit('no')

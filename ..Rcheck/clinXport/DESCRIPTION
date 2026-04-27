@@ -1,0 +1,39 @@
+Package: clinXport
+Type: Package
+Title: Clinical Data I/O for SAS XPT, SAS7BDAT, Excel, and CSV Formats
+Version: 0.1.0
+Authors@R: c(
+    person("Mahesh", "Divakaran",
+           email = "imaheshdivakaran@gmail.com",
+           role  = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-3488-0857"))
+  )
+Author: Mahesh Divakaran [aut, cre] (ORCID:
+    <https://orcid.org/0000-0002-3488-0857>)
+Maintainer: Mahesh Divakaran <imaheshdivakaran@gmail.com>
+Description: Provides high-performance read/write capabilities for clinical
+    data formats used in pharmaceutical regulatory submissions. Supports SAS
+    Transport (XPT v5 and v8), SAS7BDAT, Excel (xlsx), and CSV formats with
+    comprehensive metadata management including variable labels, SAS format
+    strings (e.g. DATE9., $CHAR200.), variable byte-length control, and
+    automatic column-name sanitisation for XPT compliance. Includes a
+    spec-driven workflow for applying variable metadata from a specification
+    sheet, and a CDISC validation layer for FDA/PMDA eCTD submissions
+    following SDTM and ADaM standards. Does not depend on 'haven' or
+    'xportr'.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: false
+Depends: R (>= 4.1.0)
+Imports: Rcpp (>= 1.0.10), openxlsx2 (>= 1.0.0), readxl (>= 1.4.0),
+        data.table (>= 1.14.0), tools
+LinkingTo: Rcpp
+Suggests: testthat (>= 3.0.0), knitr, rmarkdown, pkgdown, withr
+Config/testthat/edition: 3
+VignetteBuilder: knitr
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+URL: https://itsmdivakaran.github.io/clinXport,
+        https://github.com/itsmdivakaran/clinXport
+BugReports: https://github.com/itsmdivakaran/clinXport/issues
+Built: R 4.5.2; aarch64-apple-darwin20; 2026-04-27 07:03:03 UTC; unix

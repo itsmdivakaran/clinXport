@@ -1,0 +1,128 @@
+* using log directory ‘/Users/maheshdivakaran/Documents/CLAUDE/R pack/xport/clinXport/..Rcheck’
+* using R version 4.5.2 (2025-10-31)
+* using platform: aarch64-apple-darwin20
+* R was compiled by
+    Apple clang version 16.0.0 (clang-1600.0.26.6)
+    GNU Fortran (GCC) 14.2.0
+* running under: macOS Tahoe 26.4.1
+* using session charset: UTF-8
+* using options ‘--no-manual --no-build-vignettes’
+* checking for file ‘./DESCRIPTION’ ... OK
+* checking extension type ... Package
+* this is package ‘clinXport’ version ‘0.1.0’
+* package encoding: UTF-8
+* checking package namespace information ... OK
+* checking package dependencies ... OK
+* checking if this is a source package ... WARNING
+Subdirectory ‘clinXport/src’ contains apparent object files/libraries
+  clinXport.so RcppExports.o sas7bdat.o xpt.o
+Object files/libraries should not be included in a source package.
+* checking if there is a namespace ... OK
+* checking for executable files ... OK
+* checking for hidden files and directories ... NOTE
+Found the following hidden files and directories:
+  .DS_Store
+  .gitignore
+  .Rhistory
+  ..Rcheck
+  .git
+  .Rproj.user
+These were most likely included in error. See section ‘Package
+structure’ in the ‘Writing R Extensions’ manual.
+* checking for portable file names ... NOTE
+Found the following non-portable file paths:
+  clinXport/docs/deps/IBM_Plex_Sans-0.4.10/zYXGKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1swZSAXcomDVmadSD6llDA6g4poY.woff2
+  clinXport/docs/deps/IBM_Plex_Sans-0.4.10/zYXGKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1swZSAXcomDVmadSD6llDB6g4.woff2
+  clinXport/docs/deps/IBM_Plex_Sans-0.4.10/zYXGKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1swZSAXcomDVmadSD6llDBKg4poY.woff2
+  clinXport/docs/deps/IBM_Plex_Sans-0.4.10/zYXGKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1swZSAXcomDVmadSD6llDCag4poY.woff2
+  clinXport/docs/deps/IBM_Plex_Sans-0.4.10/zYXGKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1swZSAXcomDVmadSD6llDCKg4poY.woff2
+  clinXport/docs/deps/IBM_Plex_Sans-0.4.10/zYXGKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1swZSAXcomDVmadSD6llDCqg4poY.woff2
+
+Tarballs are only required to store paths of up to 100 bytes and cannot
+store those of more than 256 bytes, with restrictions including to 100
+bytes for the final component.
+See section ‘Package structure’ in the ‘Writing R Extensions’ manual.
+* checking for sufficient/correct file permissions ... OK
+* checking whether package ‘clinXport’ can be installed ... WARNING
+Found the following significant warnings:
+  /Library/Frameworks/R.framework/Resources/include/R_ext/Boolean.h:62:36: warning: unknown warning group '-Wfixed-enum-extension', ignored [-Wunknown-warning-option]
+See ‘/Users/maheshdivakaran/Documents/CLAUDE/R pack/xport/clinXport/..Rcheck/00install.out’ for details.
+* used C++ compiler: ‘Apple clang version 21.0.0 (clang-2100.0.123.102)’
+* used SDK: ‘MacOSX26.4.1.sdk’
+* checking C++ specification ... OK
+* checking installed package size ... OK
+* checking package directory ... OK
+* checking DESCRIPTION meta-information ... NOTE
+Checking should be performed on sources prepared by ‘R CMD build’.
+* checking top-level files ... OK
+* checking for left-over files ... OK
+* checking index information ... OK
+* checking package subdirectories ... WARNING
+Found the following directory with the name of a check directory:
+  ./..Rcheck
+Most likely, these were included erroneously.
+Subdirectory ‘inst’ contains no files.
+* checking code files for non-ASCII characters ... OK
+* checking R files for syntax errors ... OK
+* checking whether the package can be loaded ... OK
+* checking whether the package can be loaded with stated dependencies ... OK
+* checking whether the package can be unloaded cleanly ... OK
+* checking whether the namespace can be loaded with stated dependencies ... OK
+* checking whether the namespace can be unloaded cleanly ... OK
+* checking dependencies in R code ... OK
+* checking S3 generic/method consistency ... OK
+* checking replacement functions ... OK
+* checking foreign function calls ... OK
+* checking R code for possible problems ... OK
+* checking Rd files ... OK
+* checking Rd metadata ... OK
+* checking Rd cross-references ... OK
+* checking for missing documentation entries ... OK
+* checking for code/documentation mismatches ... WARNING
+Codoc mismatches from Rd file 'read_pharma_csv.Rd':
+read_pharma_csv
+  Code: function(path, col_select = NULL, na_strings = c("", "NA", ".",
+                 " "), encoding = "UTF-8", restore_spec = TRUE,
+                 spec_path = NULL, ...)
+  Docs: function(path, col_select = NULL, na_strings = c("", "NA", ".",
+                 " "), encoding = "UTF-8", ...)
+  Argument names in code not in docs:
+    restore_spec spec_path
+  Mismatches in argument names:
+    Position: 5 Code: restore_spec Docs: ...
+
+Codoc mismatches from Rd file 'read_pharma_excel.Rd':
+read_pharma_excel
+  Code: function(path, sheet = 1L, spec_sheet = NULL, col_types = NULL,
+                 label_row = NULL, na = c("", "NA", ".", " "), skip =
+                 0L, ...)
+  Docs: function(path, sheet = 1L, spec_sheet = NULL, col_types = NULL,
+                 na = c("", "NA", ".", " "), skip = 0L, ...)
+  Argument names in code not in docs:
+    label_row
+  Mismatches in argument names:
+    Position: 5 Code: label_row Docs: na
+    Position: 6 Code: na Docs: skip
+    Position: 7 Code: skip Docs: ...
+
+* checking Rd \usage sections ... OK
+* checking Rd contents ... OK
+* checking for unstated dependencies in examples ... OK
+* checking line endings in C/C++/Fortran sources/headers ... OK
+* checking line endings in Makefiles ... OK
+* checking compilation flags in Makevars ... OK
+* checking for GNU extensions in Makefiles ... OK
+* checking for portable use of $(BLAS_LIBS) and $(LAPACK_LIBS) ... OK
+* checking use of PKG_*FLAGS in Makefiles ... OK
+* checking compiled code ... OK
+* checking files in ‘vignettes’ ... OK
+* checking examples ... OK
+* checking for unstated dependencies in ‘tests’ ... OK
+* checking tests ... OK
+  Running ‘testthat.R’
+* checking package vignettes ... NOTE
+Package has ‘vignettes’ subdirectory but apparently no vignettes.
+Perhaps the ‘VignetteBuilder’ information is missing from the
+DESCRIPTION file?
+* DONE
+Status: 4 WARNINGs, 4 NOTEs

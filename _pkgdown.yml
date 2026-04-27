@@ -1,0 +1,99 @@
+url: https://itsmdivakaran.github.io/clinXport/
+
+template:
+  bootstrap: 5
+  bootswatch: cosmo
+  bslib:
+    primary: "#003087"
+    base_font: {google: "IBM Plex Sans"}
+    code_font: {google: "IBM Plex Mono"}
+
+navbar:
+  title: "clinXport"
+  left:
+    - text: "Get Started"
+      href: articles/clinXport-intro.html
+    - text: "Reference"
+      href: reference/index.html
+    - text: "Changelog"
+      href: news/index.html
+
+authors:
+  Mahesh Divakaran:
+    href: https://github.com/itsmdivakaran
+
+home:
+  links:
+    - text: "GitHub Repository"
+      href: https://github.com/itsmdivakaran/clinXport
+    - text: "Report a Bug"
+      href: https://github.com/itsmdivakaran/clinXport/issues
+
+reference:
+  - title: "Read functions"
+    desc: "Import clinical data from SAS, Excel, and CSV formats."
+    contents:
+      - read_xpt
+      - read_sas
+      - read_pharma_excel
+      - read_pharma_csv
+
+  - title: "Write functions"
+    desc: "Export clinical data with full metadata preservation."
+    contents:
+      - write_xpt
+      - write_sas
+      - write_pharma_excel
+      - write_pharma_csv
+
+  - title: "Variable labels"
+    desc: "Attach and retrieve human-readable variable labels."
+    contents:
+      - set_var_label
+      - get_var_label
+
+  - title: "SAS format strings"
+    desc: "Attach and retrieve SAS format strings (e.g. DATE9., $CHAR200.)."
+    contents:
+      - set_var_format
+      - get_var_format
+
+  - title: "Variable lengths"
+    desc: "Control byte widths for character variables in XPT/SAS7BDAT."
+    contents:
+      - set_var_length
+      - get_var_length
+
+  - title: "Metadata"
+    desc: "Summarise all variable-level metadata in one table."
+    contents:
+      - get_metadata
+
+  - title: "Spec-driven workflow"
+    desc: "Import and apply variable specifications from Excel or CSV files."
+    contents:
+      - import_spec
+      - apply_spec
+
+  - title: "Submission validation"
+    desc: "Check datasets against FDA/PMDA XPT and CDISC requirements."
+    contents:
+      - submission_check
+      - check_xpt_names
+      - check_var_lengths
+      - sanitize_col_names
+
+  - title: "Low-level C++ interface"
+    desc: >
+      Direct Rcpp entry points used internally by the high-level R wrappers.
+      Prefer `read_xpt()`, `write_xpt()`, `read_sas()`, and `write_sas()` in
+      everyday use.
+    contents:
+      - cx_read_xpt
+      - cx_write_xpt
+      - cx_read_sas7bdat
+      - cx_write_sas7bdat
+
+  - title: "Package"
+    contents:
+      - clinXport-package
